@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Document</title>
+</head>
+<body>
+    <h1>Cookie Storage</h1>
+    <button onclick="setCookie('username', 'Jim', 1)">Set Cookie</button>
+
+    <script>
+        function setCookie(cookieKey, cookieValue, exdays) {
+            console.log("test")
+            let date = new Date();
+            date.setTime(date.getTime() + (exdays * 24 * 60 * 60 * 1000)); 
+            let expires = "expires=" + date.toUTCString();
+            document.cookie = `${cookieKey}=${cookieValue}; ${expires}; path=/`; 
+        }
+        
+        setCookie("username", "Jim", 1);
+    </script>
+</body>
+</html>
